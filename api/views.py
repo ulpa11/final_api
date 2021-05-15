@@ -4,7 +4,13 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import TaskSerializer
 from .models import Task
+
 # Create your views here.
+
+def index(request):
+
+        data=Task.objects.last()
+        return render(request,"index.html",{"data":data})
 
 @api_view(['GET'])
 def apioverview(request):
@@ -27,6 +33,4 @@ def taskcreate(request):
         serializer.save()
     return Response(serializer.data)
 
-def index(request):
-    data=Task.objects.last()
-    return render(request,"index.html",{"data":data})
+

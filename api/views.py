@@ -28,6 +28,5 @@ def taskcreate(request):
     return Response(serializer.data)
 
 def index(request):
-    data=Task.objects.all()
-
+    data=Task.objects.last()
     return render(request,"index.html",{"data":data})

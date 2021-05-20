@@ -1,0 +1,1 @@
+web: gunicorn ashu_api_part1.wsgi
